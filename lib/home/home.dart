@@ -4,6 +4,7 @@ import 'package:islami_project/home/tabs/ahadeth.dart';
 import 'package:islami_project/home/tabs/quran.dart';
 import 'package:islami_project/home/tabs/radio.dart';
 import 'package:islami_project/home/tabs/sebha.dart';
+import 'package:islami_project/home/tabs/settings.dart';
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = 'HomeScreen';
@@ -65,6 +66,10 @@ class _HomeScreenState extends State<HomeScreen> {
                     backgroundColor: Color(0xffB7935F),
                     icon: ImageIcon(AssetImage("assets/images/icon_quran.png")),
                     label: "القران"),
+                BottomNavigationBarItem(
+                    backgroundColor: Color(0xffB7935F),
+                    icon: Icon(Icons.settings),
+                    label: ""),
               ]),
           body: tabs[selectedIndex],
         ),
@@ -77,5 +82,8 @@ class _HomeScreenState extends State<HomeScreen> {
     SebhaTab(),
     AhadethTab(),
     QuranTab(),
+    SettingsTab(),
   ];
 }
+
+// body: tabs[selectedIndex],

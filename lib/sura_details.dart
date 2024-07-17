@@ -4,78 +4,71 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:islami_project/sura_model.dart';
 
 class SuraDetailsScreen extends StatefulWidget {
-  static const String routeName = "SuraDetails";
+  static const String routeName = 'SuraDetailsScreen';
 
-  SuraDetailsScreen({super.key});
+  const SuraDetailsScreen({super.key});
 
   @override
   State<SuraDetailsScreen> createState() => _SuraDetailsScreenState();
 }
 
 class _SuraDetailsScreenState extends State<SuraDetailsScreen> {
-  List<String> verses = [];
-
   @override
+  List<String> content = [];
+
   Widget build(BuildContext context) {
     var model = ModalRoute.of(context)?.settings.arguments as SuraModel;
 
-    if (verses.isEmpty) {
-      loadSuraFile(model.index);
+    if (content.isEmpty) {
+      loadSura(model.index);
     }
 
     return Container(
       decoration: BoxDecoration(
-          image:
-          DecorationImage(image: AssetImage("assets/images/main_bg.png"))),
+          image: DecorationImage(
+              image: AssetImage('assets/images/default_bg.png'))),
       child: Scaffold(
-        backgroundColor: Colors.transparent,
-        appBar: AppBar(
           backgroundColor: Colors.transparent,
-          centerTitle: true,
-          iconTheme: IconThemeData(size: 30, color: Colors.black),
-          title: Text(
-            model.name,
-            style: GoogleFonts.elMessiri(
-                fontSize: 30, fontWeight: FontWeight.bold),
-          ),
-        ),
-        body: Container(
-          padding: const EdgeInsets.all(18.0),
-          margin: EdgeInsets.all(12),
-          child: Card(
-            shape: OutlineInputBorder(
-                borderRadius: BorderRadius.circular(14)
+          appBar: AppBar(
+            backgroundColor: Colors.transparent,
+            centerTitle: true,
+            title: Text(
+              model.name,
+              style: GoogleFonts.elMessiri(
+                fontSize: 30,
+                fontWeight: FontWeight.w700,
+              ),
             ),
-            child: ListView.separated(
-              separatorBuilder: (context, index) => Divider(),
+          ),
+          body: Card(
+            margin: EdgeInsets.all(30),
+            elevation: 20,
+            shadowColor: Colors.black,
+            color: Colors.white38,
+            child: ListView.builder(
               itemBuilder: (context, index) {
                 return Text(
-                  verses[index],
+                " ${content[index]} (${index+1})"  ,
+                  textDirection: TextDirection.rtl,
                   textAlign: TextAlign.center,
                   style: GoogleFonts.elMessiri(
-                    fontSize: 25,
-                    wordSpacing:4,
                     fontWeight: FontWeight.w400,
-
+                    fontSize: 20,
                   ),
                 );
               },
-              itemCount: verses.length,
+              itemCount: content.length,
             ),
-          ),
-        ),
-      ),
+          )),
     );
   }
 
-
-  loadSuraFile(int index) async {
-    String sura = await rootBundle.loadString("assets/files/${index + 1}.txt");
-
-
-    List<String> suraLines = sura.split("\n");
-    verses = suraLines;
+  loadSura(index) async {
+    String suraContent =
+        await rootBundle.loadString('assets/files/${index + 1}.txt');
+    List<String> suraLines = suraContent.split('\n');
     print(suraLines);
+    content = suraLines;
     setState(() {});
   }
 }
