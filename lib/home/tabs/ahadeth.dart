@@ -25,7 +25,7 @@ class _AhadethTabState extends State<AhadethTab> {
         Image.asset("assets/images/hadeth_logo.png"),
         Divider(
           thickness: 3,
-          color: AppColors.primaryColor,
+          color: Theme.of(context).colorScheme.onPrimary,
         ),
         Text(
           "الأحاديث",
@@ -34,7 +34,7 @@ class _AhadethTabState extends State<AhadethTab> {
         ),
         Divider(
           thickness: 3,
-          color: AppColors.primaryColor,
+          color: Theme.of(context).colorScheme.onPrimary,
         ),
         Expanded(
           child: ListView.separated(

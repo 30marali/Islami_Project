@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
+
+import '../../my_provider.dart';
 
 class SebhaTab extends StatefulWidget {
   SebhaTab({super.key});
@@ -33,19 +36,23 @@ class _SebhaTabState extends State<SebhaTab> {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<MyProvider>(context);
     return Scaffold(
-      backgroundColor: Colors.transparent,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Image.asset(
-              'assets/images/head_sebha_logo.png',
+              provider.mode == ThemeMode.light
+                  ? 'assets/images/head_sebha_logo.png'
+                  : 'assets/images/head_sebha_dark.png',
               width: 200,
               height: 105,
             ),
             Image.asset(
-              'assets/images/body_sebha_logo.png',
+              provider.mode == ThemeMode.light
+                  ? 'assets/images/body_sebha_logo.png'
+                  : 'assets/images/body_sebha_dark.png',
               width: 232,
               height: 234,
             ),
@@ -61,7 +68,7 @@ class _SebhaTabState extends State<SebhaTab> {
             ElevatedButton(
               onPressed: () {},
               style: ElevatedButton.styleFrom(
-                  backgroundColor: Color(0xFFcab497),
+                  backgroundColor: Theme.of(context).colorScheme.primary,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(25),
                   ),
@@ -79,7 +86,7 @@ class _SebhaTabState extends State<SebhaTab> {
             ElevatedButton(
               onPressed: incrementCounter,
               style: ElevatedButton.styleFrom(
-                backgroundColor: Color(0xFFB7935F),
+                backgroundColor: Theme.of(context).colorScheme.onPrimary,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(25),
                 ),

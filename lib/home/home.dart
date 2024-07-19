@@ -5,6 +5,10 @@ import 'package:islami_project/home/tabs/quran.dart';
 import 'package:islami_project/home/tabs/radio.dart';
 import 'package:islami_project/home/tabs/sebha.dart';
 import 'package:islami_project/home/tabs/settings.dart';
+import 'package:islami_project/my_provider.dart';
+import 'package:provider/provider.dart';
+
+
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = 'HomeScreen';
@@ -20,21 +24,18 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    var provider = Provider.of<MyProvider>(context);
     return Stack(
       children: [
-        Image.asset('assets/images/default_bg.png'),
+        Image.asset(provider.mode == ThemeMode.light
+            ? 'assets/images/default_bg.png'
+            : 'assets/images/dark_bg.png'),
         Scaffold(
-          backgroundColor: Colors.transparent,
           appBar: AppBar(
-            backgroundColor: Colors.transparent,
             title: Text(
               'اسلامي',
-              style: GoogleFonts.elMessiri(
-                fontSize: 30,
-                fontWeight: FontWeight.w700,
-              ),
+              style: Theme.of(context).textTheme.bodyLarge,
             ),
-            centerTitle: true,
           ),
           bottomNavigationBar: BottomNavigationBar(
               currentIndex: selectedIndex,
@@ -42,11 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 selectedIndex = value;
                 setState(() {});
               },
-              backgroundColor: Color(0xffB7935F),
-              type: BottomNavigationBarType.shifting,
-              showUnselectedLabels: false,
               selectedItemColor: Colors.black,
-              unselectedItemColor: Colors.white,
               items: [
                 BottomNavigationBarItem(
                   backgroundColor: Color(0xffB7935F),

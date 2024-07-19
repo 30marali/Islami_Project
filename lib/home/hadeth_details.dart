@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:islami_project/home/hadeth_model.dart';
+import 'package:provider/provider.dart';
+
+import '../my_provider.dart';
 
 class HadethDetails extends StatelessWidget {
   static const String routeName = 'HadethScreen';
@@ -10,39 +13,35 @@ class HadethDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var model = ModalRoute.of(context)?.settings.arguments as HadethModel;
+    var provider = Provider.of<MyProvider>(context);
     return Container(
       decoration: BoxDecoration(
           image: DecorationImage(
         image: AssetImage(
-          "assets/images/default_bg.png",
+            provider.mode == ThemeMode.light
+                ? 'assets/images/default_bg.png'
+                : 'assets/images/dark_bg.png'
         ),
       )),
       child: Scaffold(
-        backgroundColor: Colors.transparent,
         appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          centerTitle: true,
           title: Text(
             model.title,
-            style: GoogleFonts.elMessiri(
-              fontSize: 30,
-              fontWeight: FontWeight.w700,
-            ),
+            style:Theme.of(context).textTheme.bodyLarge,
           ),
         ),
         body: Card(
           margin: EdgeInsets.all(30),
           elevation: 20,
           shadowColor: Colors.black,
-          color: Colors.white38,
+          color: Theme.of(context).colorScheme.primary,
           child: ListView.builder(
             itemBuilder: (context, index) {
               return Text(
                 model.content[index],
                 textDirection: TextDirection.rtl,
-                style: GoogleFonts.inter(
-                  fontWeight: FontWeight.w400,
-                  fontSize: 25,
+                style: Theme.of(context).textTheme.bodyMedium?.copyWith(
+                  color: Theme.of(context).colorScheme.onPrimary,
                 ),
               );
             },
