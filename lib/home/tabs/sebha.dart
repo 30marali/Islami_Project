@@ -86,7 +86,7 @@ class _SebhaTabState extends State<SebhaTab> {
             ElevatedButton(
               onPressed: incrementCounter,
               style: ElevatedButton.styleFrom(
-                backgroundColor: Theme.of(context).colorScheme.onPrimary,
+                backgroundColor: Theme.of(context).colorScheme.secondary,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(25),
                 ),

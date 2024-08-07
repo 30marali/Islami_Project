@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:islami_project/home/tabs/ahadeth.dart';
-import 'package:islami_project/home/tabs/quran.dart';
-import 'package:islami_project/home/tabs/radio.dart';
-import 'package:islami_project/home/tabs/sebha.dart';
-import 'package:islami_project/home/tabs/settings.dart';
-import 'package:islami_project/my_provider.dart';
+import 'package:islamic_app/home/tabs/ahadeth.dart';
+import 'package:islamic_app/home/tabs/quran.dart';
+import 'package:islamic_app/home/tabs/radio.dart';
+import 'package:islamic_app/home/tabs/sebha.dart';
+import 'package:islamic_app/home/tabs/settings.dart';
+import 'package:islamic_app/my_provider.dart';
 import 'package:provider/provider.dart';
 
 

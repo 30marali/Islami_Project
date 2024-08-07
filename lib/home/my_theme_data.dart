@@ -44,6 +44,7 @@ class MyThemeData {
         onError: Colors.white,
         surface: Colors.white,
         onSurface: Colors.black),
+    dividerColor: Color(0xFFB7935F),
   );
 
   static ThemeData darkTheme = ThemeData(
@@ -73,11 +74,13 @@ class MyThemeData {
         brightness: Brightness.dark,
         primary: darkColor,
         onPrimary: yellowColor,
-        secondary: darkColor,
+        secondary: yellowColor,
         onSecondary: Colors.white,
         error: Colors.red,
         onError: Colors.white,
         surface: Colors.white,
         onSurface: darkColor),
+    dividerColor: Color(0xFFFACC1D),
+
   );
 }
