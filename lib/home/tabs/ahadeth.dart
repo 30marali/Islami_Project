@@ -25,21 +25,22 @@ class _AhadethTabState extends State<AhadethTab> {
         Image.asset("assets/images/hadeth_logo.png"),
         Divider(
           thickness: 3,
-          color: Theme.of(context).colorScheme.onPrimary,
+          color: Theme.of(context).dividerColor,
         ),
         Text(
           "الأحاديث",
           style:
-              GoogleFonts.elMessiri(fontSize: 25, fontWeight: FontWeight.w600),
+              GoogleFonts.elMessiri(fontSize: 30, fontWeight: FontWeight.w700),
         ),
         Divider(
           thickness: 3,
-          color: Theme.of(context).colorScheme.onPrimary,
+          color: Theme.of(context).dividerColor,
         ),
         Expanded(
           child: ListView.separated(
             separatorBuilder: (context, index) => Divider(
               thickness: 1,
+              color: Colors.grey,
             ),
             itemBuilder: (context, index) {
               return InkWell(
@@ -50,7 +51,7 @@ class _AhadethTabState extends State<AhadethTab> {
                 },
                 child: Text(
                   allAhadeth[index].title,
-                  style: GoogleFonts.elMessiri(fontSize: 25),
+                  style: GoogleFonts.elMessiri(fontSize: 23),
                   textAlign: TextAlign.center,
                 ),
               );

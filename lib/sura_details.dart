@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:islami_project/sura_model.dart';
+import 'package:islamic_app/sura_model.dart';
 import 'package:provider/provider.dart';
 
 import 'my_provider.dart';

@@ -35,7 +35,7 @@ class _SettingsTabState extends State<SettingsTab> {
               width: double.infinity,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(18),
-                  border: Border.all(color: Theme.of(context).primaryColor)),
+                  border: Border.all(color: Theme.of(context).colorScheme.secondary)),
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(
@@ -62,7 +62,7 @@ class _SettingsTabState extends State<SettingsTab> {
               width: double.infinity,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(18),
-                  border: Border.all(color: Theme.of(context).primaryColor)),
+                  border: Border.all(color: Theme.of(context).colorScheme.secondary)),
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Text(

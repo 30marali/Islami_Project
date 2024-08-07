@@ -254,7 +254,7 @@ class QuranTab extends StatelessWidget {
         SizedBox(height: 10),
         Divider(
           thickness: 3,
-          color: Theme.of(context).colorScheme.onPrimary,
+          color: Theme.of(context).dividerColor,
         ),
         SizedBox(height: 10),
         Padding(
@@ -289,7 +289,7 @@ class QuranTab extends StatelessWidget {
         SizedBox(height: 10),
         Divider(
           thickness: 3,
-          color: Theme.of(context).colorScheme.onPrimary,
+          color: Theme.of(context).dividerColor,
         ),
         Expanded(
           child: ListView.separated(
